@@ -7,10 +7,12 @@
     "build": "tsc",
     "start": "node dist/index.js",
     "dev": "tsx watch src/index.ts",
-    "typecheck": "tsc --noEmit"
+    "test": "tsx --test test/*.test.ts",
+    "typecheck": "tsc --noEmit && tsc --project tsconfig.test.json"
   },
   "devDependencies": {
     "@types/node": "^26.0.0",
+    "fast-check": "^4.8.0",
     "tsx": "^4.22.4",
     "typescript": "^6.0.3"
   }
