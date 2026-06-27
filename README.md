@@ -22,3 +22,20 @@ npm start          # Run the compiled JavaScript
 
 Tests use [fast-check](https://fast-check.dev/) with the Node.js test runner. Add
 property-based tests to the `test/` directory using the `*.test.ts` suffix.
+
+## HTTP client
+
+This project includes a small HTTP client built with
+[undici](https://undici.nodejs.org/).
+
+```ts
+import { createHttpClient } from "./http-client.js";
+
+const client = createHttpClient({
+  baseUrl: "https://api.example.com",
+});
+
+const response = await client.get<{ id: number; name: string }>("/users/1");
+
+console.log(response.data.name);
+```
